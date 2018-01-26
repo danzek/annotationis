@@ -4,7 +4,7 @@ Various notes/reminders.
 
 I used to keep stuff like this in [Gists](https://gist.github.com/danzek) but am moving some of it into this repository in order to be able to add a little more structure to it.
 
-No, I did not misspell "*annotations*"&mdash;this is the Latin plural form of the lemma. I originally was going to name the repository "ὑπομνήματα" (hypomnēmata), but GitHub repo names can only contain ASCII characters and that name is even more confusing than a Latin word with an English cognate.
+No, I did not misspell "annotations"&mdash;this is the Latin plural form of the lemma. I originally was going to name the repository "ὑπομνήματα" (hypomnēmata), but GitHub repo names can only contain ASCII characters and that name is even more confusing than a Latin word with an English cognate.
 
 <hr />
 

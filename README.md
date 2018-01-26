@@ -2,9 +2,9 @@
 
 Various notes/reminders.
 
-I used to keep stuff like this in [Gists](https://gist.github.com/danzek) but am moving some of it into this repository in order to be able to add a little more structure to some it.
+I used to keep stuff like this in [Gists](https://gist.github.com/danzek) but am moving some of it into this repository in order to be able to add a little more structure to it.
 
-No, I did not misspell "annotations", this is the Latin plural form of the lemma.
+No, I did not misspell "*annotations*"&mdash;this is the Latin plural form of the lemma. I originally was going to name the repository "ὑπομνήματα" (hypomnēmata), but GitHub repo names can only contain ASCII characters and that name is even more confusing than a Latin word with an English cognate.
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><em>annotationis</em></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/danzek/annotationis" property="cc:attributionName" rel="cc:attributionURL">Dan O'Day</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 

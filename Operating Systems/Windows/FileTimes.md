@@ -30,7 +30,7 @@ SOURCE: Microsoft, “Windows NT Contains File System Tunneling Capabilities”,
 
 > When you use a program to edit an existing file, then save it, you expect the original creation timestamp to be preserved, since you're editing a file, not creating a new one. But internally, many programs save a file by performing a combination of save, delete, and rename operations…, and without tunneling, the creation time of the file would seem to change even though from the end user's point of view, no file got created.
 >
-> As another example of the importance of tunneling, consider that file “File with long name.txt”, whose short name is say “FILEWI~1.TXT”. You load this file into a program that is not long-filename-aware and save it. It deletes the old “FILEWI~1.TXT” and creates a new one with the same name. Without tunnelling, the associated long name of the file would be lost. Instead of a friendly long name, the file name got corrupted into this thing with squiggly marks. Not good.
+> As another example of the importance of tunneling, consider that file “`File with long name.txt`”, whose short name is say "`FILEWI~1.TXT`". You load this file into a program that is not long-filename-aware and save it. It deletes the old "`FILEWI~1.TXT`" and creates a new one with the same name. Without tunnelling, the associated long name of the file would be lost. Instead of a friendly long name, the file name got corrupted into this thing with squiggly marks. Not good.
 
 SOURCE: Raymond Chen, “The apocryphal history of file system tunnelling”, Microsoft Developer Blog: The Old New Thing (July 15, 2005). Retrieved August 21, 2017 from https://blogs.msdn.microsoft.com/oldnewthing/20050715-14/?p=34923/.
 

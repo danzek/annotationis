@@ -42,13 +42,15 @@ To download a file using BITS via PowerShell, as an example, this pulls down the
 
 You can also use `-Source` and `-Destination` parameters and/or use the `-TransferType` parameter to use another transfer job type. [See "Using Windows PowerShell to Create BITS Transfer Jobs"](https://msdn.microsoft.com/en-us/library/windows/desktop/ee663885(v=vs.85).aspx) for many more examples.
 
+The BITS interface allows transfer policy settings to be specified such as avoiding downloads over metered connections via [flags in the `BITS_COST_STATE` enum.](https://msdn.microsoft.com/en-us/library/windows/desktop/mt595901(v=vs.85).aspx) While this makes sense to avoid making a user pay for downloads where bandwidth is expensive, this could also be abused by malware. For instance, policy for a network (that has a firewall, IDS, other monitoring, etc.) could be set to say that it is a metered network, and thus the malware could avoid download activity while connected to that network.
+
 ## Queue Manager
 
 BITS can create Queue Manager files that track transfers (I've observed this on Windows 7). These files are typically saved with a `.dat` extension to:
 
     %%ALLUSERSPROFILE%%\Microsoft\Network\Downloader
 
-For instance, `qmgr0.dat`, `qmgr1.dat`, and so on. You can also view current transfers on a live system using PowerShell with admin privileges:
+Typically `qmgr0.dat` and `qmgr1.dat`. You can also view current transfers on a live system using PowerShell with admin privileges:
 
     Get-BitsTransfer -AllUsers
 
@@ -61,6 +63,12 @@ On Windows 10, it apppears the BITS transfers are stored in a `.db` file (and I 
 ## Tools
 
  - The [French National Agency for Information Systems Security (Agence nationale de la sécurité des systèmes d'information / ANSSI-FR)](https://www.ssi.gouv.fr/) released [bits_parser](https://github.com/ANSSI-FR/bits_parser) which extracts BITS jobs from QMGR queues and stores parsed results in CSV format. [Xavier Mertens wrote a blog post](https://isc.sans.edu/forums/diary/Investigating+Microsoft+BITS+Activity/23281/) about using this tool. Note that *Python 3.3+ is required* (this was not documented anywhere when I first went to install it).
+
+ - Matthew Geiger, ["Finding your naughty BITS"](https://www.dfrws.org/sites/default/files/session-files/pres-finding_your_naughty_bits.pdf), presentation delivered at *DFRWS 2015 USA*, August 2015
+
+ - MSDN, ["How to control whether a BITS job is allowed to download over an expensive connection"](https://msdn.microsoft.com/en-us/library/hh994437%28v=vs.85%29.aspx)
+
+ - MSDN, ["BITS Reference"](https://msdn.microsoft.com/en-us/library/aa362820%28v=vs.85%29.aspx)
 
  - [Microsoft BITS Samples and Tools](https://msdn.microsoft.com/en-us/library/windows/desktop/aa362824(v=vs.85).aspx)
 

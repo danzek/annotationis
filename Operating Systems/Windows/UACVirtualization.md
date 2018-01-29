@@ -79,9 +79,19 @@ Registry virtualization is controlled by the Configuration Manager in the system
 
 **NOTE:** I won't spend much time on this section because this has been covered *ad nauseam* by others in the DFIR community (whereas I've observed very little talk in the community about file system and Registry namespace virtualization).
 
-Sometimes virtualizing the file system and/or Registry isn't enough to make a legacy application compatible with Vista+. As a result, Microsoft created the Application Compatibility Interface/Toolkit/Engine whereby the Application Compatibility Database (`C:\Windows\AppPatch\sysmain.sdb`) contains how an application or DLL should be "shimmed" with missing components during startup/load time. This can be as simple as lying about the OS version or as complex as providing an alternative function being called from a DLL (perhaps because its functionality and/or signature has changed or it has been deprecated). According to [Tim Newton,](https://blogs.technet.microsoft.com/askperf/2011/06/17/demystifying-shims-or-using-the-app-compat-toolkit-to-make-your-old-stuff-work-with-your-new-stuff/)
+Sometimes virtualizing the file system and/or Registry isn't enough to make a legacy application compatible with Vista+. As a result, Microsoft created the Application Compatibility Interface/Toolkit/Engine whereby the Application Compatibility Database(s) (the main one is generally at `C:\Windows\AppPatch\sysmain.sdb`) contains how an application or DLL should be "shimmed" with missing components during startup/load time. This can be as simple as lying about the OS version or as complex as providing an alternative function being called from a DLL (perhaps because its functionality and/or signature has changed or it has been deprecated). According to [Tim Newton,](https://blogs.technet.microsoft.com/askperf/2011/06/17/demystifying-shims-or-using-the-app-compat-toolkit-to-make-your-old-stuff-work-with-your-new-stuff/)
 
 > The Shim Infrastructure implements a form of Application Programming Interface (API) hooking. The Windows API is implemented using a collection of DLLs. Each application built for Windows imports these DLLs, and maintains a table of the address of each of these functions in memory. Because the address of the Windows functionality is sitting in a table, it is straightforward for the shim engine to replace this address with the address of the shim DLL instead. The application is generally unaware that the request is going to a shim DLL instead of to Windows itself, and Windows is unaware that the request is coming from a source other than the application (because the shim DLL is just another DLL inside the application’s process).
+
+Additional shim databases can be registered using the `sdbinst.exe` CLI tool which will set Registry keys at:
+
+    HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\Current Version\AppCompatFlags\Custom
+    HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\Current Version\AppCompatFlags\InstalledSDB
+
+Once the database has been registered, the resulting SDB database will end up in one of these two folders (for 32-bit and 64-bit applications, respectively):
+
+    C:\Windows\AppPatch\Custom
+    C:\Windows\AppPatch\Custom\Custom64
 
 Malware has been known to use this to hot-patch/inject programs/DLLs and escalate privileges (e.g., [IAT hooking](http://sandsprite.com/CodeStuff/IAT_Hooking.html)).
 
@@ -94,6 +104,10 @@ Malware has been known to use this to hot-patch/inject programs/DLLs and escalat
  - Tim Newton, ["Demystifying Shims – or – Using the App Compat Toolkit to make your old stuff work with your new stuff"](https://blogs.technet.microsoft.com/askperf/2011/06/17/demystifying-shims-or-using-the-app-compat-toolkit-to-make-your-old-stuff-work-with-your-new-stuff/), *Microsoft TechNet Ask the Performance Team Blog*, June 2011
 
  - Alex Ionescu, ["Secrets of the Application Compatilibity Database (SDB)"](http://www.alex-ionescu.com/?p=39); [part 2](http://www.alex-ionescu.com/?p=40); [part 3](http://www.alex-ionescu.com/?p=41); [part 4](http://www.alex-ionescu.com/?p=43)
+
+ - Microsoft, ["Using the Sdbinst.exe Command-Line Tool"](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-7/cc749169(v=ws.10)), *Microsoft Docs*, June 2010
+
+ - Microsoft, ["Creating a Custom Compatibility Fix"](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-7/cc721928%28v%3dws.10%29), *Microsoft Docs*, June 2010
 
  - Matthew McWhirt, Jon Erickson, and DJ Palombo, ["To SDB, Or Not To SDB: FIN7 Leveraging Shim Databases for Persistence"](https://www.fireeye.com/blog/threat-research/2017/05/fin7-shim-databases-persistence.html), *FireEye Threat Research Blog*, May 2017
 

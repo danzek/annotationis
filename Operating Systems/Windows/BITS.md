@@ -44,7 +44,7 @@ You can also use `-Source` and `-Destination` parameters and/or use the `-Transf
 
 ## Queue Manager
 
-BITS can create Queue Manager files that track transfers. These files are typically saved with a `.dat` extension to:
+BITS can create Queue Manager files that track transfers (I've observed this on Windows 7). These files are typically saved with a `.dat` extension to:
 
     %%ALLUSERSPROFILE%%\Microsoft\Network\Downloader
 
@@ -56,12 +56,14 @@ Relevant event logs are stored in:
 
     Microsoft-Windows-Bits-Client/(Microsoft-Windows-Bits-Client/Operational.evtx
 
+On Windows 10, it apppears the BITS transfers are stored in a `.db` file (and I also observed `.log` files) in the same location. BITS v5.0 is included in Windows 10, where the version of `%windir%\System32\QMgr.dll` is "`7.8.xxxx.xxxx`". I am not sure how to parse this database file yet (please contact me to let me know or fork this repo and issue a pull request to this page explaining it more!).
+
 ## Tools
 
  - The [French National Agency for Information Systems Security (Agence nationale de la sécurité des systèmes d'information / ANSSI-FR)](https://www.ssi.gouv.fr/) released [bits_parser](https://github.com/ANSSI-FR/bits_parser) which extracts BITS jobs from QMGR queues and stores parsed results in CSV format. [Xavier Mertens wrote a blog post](https://isc.sans.edu/forums/diary/Investigating+Microsoft+BITS+Activity/23281/) about using this tool. Note that *Python 3.3+ is required* (this was not documented anywhere when I first went to install it).
 
  - [Microsoft BITS Samples and Tools](https://msdn.microsoft.com/en-us/library/windows/desktop/aa362824(v=vs.85).aspx)
 
- - [The Microsoft BITSAdmin tool](https://msdn.microsoft.com/en-us/library/windows/desktop/aa362813(v=vs.85).aspx) is now deprecated but works with old systems like WinXP SP2 (BITS is now integrated into PowerShell).
+ - [The Microsoft BITSAdmin tool](https://msdn.microsoft.com/en-us/library/windows/desktop/aa362813(v=vs.85).aspx) is deprecated as of Windows 7 (BITS is now integrated into PowerShell).
 
  - [SecureWorks has written about malware leveraging BITS](https://www.secureworks.com/blog/malware-lingers-with-bits) to evade remediation. It also appears they wrote a [010 Editor](https://www.sweetscape.com/download/010editor/) template in the screenshots, but they did not share it publicly in this post.

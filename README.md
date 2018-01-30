@@ -18,8 +18,8 @@ We may eventually move the NTFS content in the Windows folder to a `File Systems
 
 | Name | Email | GitHub |
 | ---- | ----- | ------ |
-| Dan O'Day | d@4n68r.com | @danzek |
-| Adam Witt | accidentalassist@gmail.com | @PoorBillionaire |
+| Dan O'Day | d@4n68r.com | [danzek](https://github.com/danzek) |
+| Adam Witt | accidentalassist@gmail.com | [PoorBillionaire](https://github.com/PoorBillionaire) |
 
 ## Random Trivia
 

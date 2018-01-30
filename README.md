@@ -16,10 +16,10 @@ We may eventually move the NTFS content in the Windows folder to a `File Systems
 
 ## Contributors
 
-| Name | Email | GitHub |
-| ---- | ----- | ------ |
-| Dan O'Day | d@4n68r.com | [danzek](https://github.com/danzek) |
-| Adam Witt | accidentalassist@gmail.com | [PoorBillionaire](https://github.com/PoorBillionaire) |
+| Name | Email | GitHub | Twitter |
+| ---- | ----- | ------ | ------- |
+| Dan O'Day | d@4n68r.com | [danzek](https://github.com/danzek) | [@4n68r](https://twitter.com/4n68r) |
+| Adam Witt | accidentalassist@gmail.com | [PoorBillionaire](https://github.com/PoorBillionaire) | [@_TrapLoop](https://twitter.com/_TrapLoop)
 
 ## Random Trivia
 

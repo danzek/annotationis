@@ -7,10 +7,10 @@ Various notes/memoranda.
 - Operating Systems
   - Windows
     - [Background Intelligent Transfer Service (BITS)](Operating%20Systems/Windows/BITS.md)
-    - [CLSID Keys](https://github.com/danzek/annotationis/blob/master/Operating%20Systems/Windows/CLSID.md)
-    - [NTFS File Caching ("Lazy Write")](https://github.com/danzek/annotationis/blob/master/Operating%20Systems/Windows/FileCaching.md)
-    - [NTFS File Times](https://github.com/danzek/annotationis/blob/master/Operating%20Systems/Windows/FileTimes.md)
-    - [User Account Control (UAC) Virtualization](https://github.com/danzek/annotationis/blob/master/Operating%20Systems/Windows/UACVirtualization.md)
+    - [CLSID Keys](Operating%20Systems/Windows/CLSID.md)
+    - [NTFS File Caching ("Lazy Write")](Operating%20Systems/Windows/FileCaching.md)
+    - [NTFS File Times](Operating%20Systems/Windows/FileTimes.md)
+    - [User Account Control (UAC) Virtualization](Operating%20Systems/Windows/UACVirtualization.md)
 
 We may eventually move the NTFS content in the Windows folder to a `File Systems/NTFS` folder.
 

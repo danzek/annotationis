@@ -6,7 +6,7 @@ Various notes/memoranda.
 
 1. Operating Systems
   - Windows
-    - [Background Intelligent Transfer Service (BITS)](Operating Systems/Windows/BITS.md)
+    - [Background Intelligent Transfer Service (BITS)](Operating\ Systems/Windows/BITS.md)
     - [CLSID Keys](Operating Systems/Windows/CLSID.md)
     - [NTFS File Caching ("Lazy Write")](Operating Systems/Windows/FileCaching.md)
     - [NTFS File Times](Operating Systems/Windows/FileTimes.md)

@@ -48,7 +48,7 @@ The BITS interface allows transfer policy settings to be specified such as avoid
 
 BITS can create Queue Manager files that track transfers (I've observed this on Windows 7). These files are typically saved with a `.dat` extension to:
 
-    %%ALLUSERSPROFILE%%\Microsoft\Network\Downloader
+    %ALLUSERSPROFILE%\Microsoft\Network\Downloader
 
 Typically `qmgr0.dat` and `qmgr1.dat`. You can also view current transfers on a live system using PowerShell with admin privileges:
 

@@ -2,6 +2,27 @@
 
 Various notes/memoranda.
 
+## Table of Contents
+
+1. Operating Systems
+  - Windows
+    - [Background Intelligent Transfer Service (BITS)](Operating Systems/Windows/BITS.md)
+    - [CLSID Keys](Operating Systems/Windows/CLSID.md)
+    - [NTFS File Caching ("Lazy Write")](Operating Systems/Windows/FileCaching.md)
+    - [NTFS File Times](Operating Systems/Windows/FileTimes.md)
+    - [User Account Control (UAC) Virtualization](Operating Systems/Windows/UACVirtualization.md)
+
+We may eventually move the NTFS content in the Windows folder to a `File Systems/NTFS` folder.
+
+## Contributors
+
+| Name | Email |
+| ---- | ----- |
+| Dan O'Day | d@4n68r.com |
+| Adam Witt | accidentalassist@gmail.com |
+
+## Random Trivia
+
 I used to keep stuff like this in [Gists](https://gist.github.com/danzek) but am moving some of it into this repository in order to be able to add a little more structure to it.
 
 No, I did not misspell "annotations"&mdash;this is the Latin plural form of the lemma. I originally was going to name the repository "ὑπομνήματα" (hypomnēmata), but GitHub repo names can only contain ASCII characters and that name is even more confusing than a Latin word with an English cognate. "*Memoranda*" was a close runner up for the repo name also.

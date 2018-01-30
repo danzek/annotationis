@@ -4,7 +4,7 @@ Various notes/memoranda.
 
 ## Table of Contents
 
-1. Operating Systems
+- Operating Systems
   - Windows
     - [Background Intelligent Transfer Service (BITS)](Operating\ Systems/Windows/BITS.md)
     - [CLSID Keys](Operating Systems/Windows/CLSID.md)

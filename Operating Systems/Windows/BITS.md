@@ -73,5 +73,7 @@ On Windows 10, it apppears the BITS transfers are stored in a `.db` file (and I 
  - [Microsoft BITS Samples and Tools](https://msdn.microsoft.com/en-us/library/windows/desktop/aa362824(v=vs.85).aspx)
 
  - [The Microsoft BITSAdmin tool](https://msdn.microsoft.com/en-us/library/windows/desktop/aa362813(v=vs.85).aspx) is deprecated as of Windows 7 (BITS is now integrated into PowerShell).
+ 
+ - [BITSInject](https://github.com/SafeBreach-Labs/BITSInject) is a one-click tool to inject jobs into the BITS queue, allowing arbitrary program execution as the `NT AUTHORITY/SYSTEM` account.
 
  - [SecureWorks has written about malware leveraging BITS](https://www.secureworks.com/blog/malware-lingers-with-bits) to evade remediation. It also appears they wrote a [010 Editor](https://www.sweetscape.com/download/010editor/) template in the screenshots, but they did not share it publicly in this post.

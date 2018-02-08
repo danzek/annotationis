@@ -108,8 +108,18 @@ Malware has been known to use this to hot-patch/inject programs/DLLs and escalat
  - Microsoft, ["Using the Sdbinst.exe Command-Line Tool"](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-7/cc749169(v=ws.10)), *Microsoft Docs*, June 2010
 
  - Microsoft, ["Creating a Custom Compatibility Fix"](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-7/cc721928%28v%3dws.10%29), *Microsoft Docs*, June 2010
+ 
+ - Microsoft, ["Custom Shim Database Deployment"](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-7/dd837647(v=ws.10)), *Microsoft Docs*, September 2012
+ 
+ - MITRE ATT&CK, ["Application Shimming"](https://attack.mitre.org/wiki/Technique/T1138) (Technique # T1138)
 
  - Matthew McWhirt, Jon Erickson, and DJ Palombo, ["To SDB, Or Not To SDB: FIN7 Leveraging Shim Databases for Persistence"](https://www.fireeye.com/blog/threat-research/2017/05/fin7-shim-databases-persistence.html), *FireEye Threat Research Blog*, May 2017
+ 
+ - Tom Spring, ["Carbanak attackers devise clever new persistence trick"](https://threatpost.com/carbanak-attackers-devise-clever-new-persistence-trick/125457/), *Threatpost Blog*, May 2017
+ 
+ - Frank McClain, ["Detecting Application Shimming: A Story About Continuous Improvement"](https://www.redcanary.com/blog/detecting-application-shimming/), *Red Canary Blog*, February 2018
+ 
+ - Eric Zimmerman, [`SDB` project](https://github.com/EricZimmerman/SDB) (and SDB Explorer GUI tool will be released soon according to [a recent tweet from Eric on 2/5/2018](https://twitter.com/EricRZimmerman/status/960609368285896704))
 
  - Willi Ballenthin's [`python-sdb` parser](https://github.com/williballenthin/python-sdb)
 

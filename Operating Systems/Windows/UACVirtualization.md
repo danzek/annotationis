@@ -119,7 +119,7 @@ Malware has been known to use this to hot-patch/inject programs/DLLs and escalat
  
  - Frank McClain, ["Detecting Application Shimming: A Story About Continuous Improvement"](https://www.redcanary.com/blog/detecting-application-shimming/), *Red Canary Blog*, February 2018
  
- - Eric Zimmerman, [`SDB` project](https://github.com/EricZimmerman/SDB) (and SDB Explorer GUI tool will be released soon according to [a recent tweet from Eric on 2/5/2018](https://twitter.com/EricRZimmerman/status/960609368285896704))
+ - Eric Zimmerman, [SDB Explorer (GUI tool)](https://ericzimmerman.github.io/); see also [`SDB` project](https://github.com/EricZimmerman/SDB)
 
  - Willi Ballenthin's [`python-sdb` parser](https://github.com/williballenthin/python-sdb)
 

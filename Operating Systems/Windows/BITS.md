@@ -64,7 +64,7 @@ On Windows 10, it apppears the BITS transfers are stored in a `.db` file (and I 
 
  - The [French National Agency for Information Systems Security (Agence nationale de la sécurité des systèmes d'information / ANSSI-FR)](https://www.ssi.gouv.fr/) released [bits_parser](https://github.com/ANSSI-FR/bits_parser) which extracts BITS jobs from QMGR queues and stores parsed results in CSV format. [Xavier Mertens wrote a blog post](https://isc.sans.edu/forums/diary/Investigating+Microsoft+BITS+Activity/23281/) about using this tool. Note that *Python 3.3+ is required* (this was not documented anywhere when I first went to install it).
  
- - Andrea Sancho [refactored the above-listed `bits_parser` as a standalone Python 2.7 script](https://github.com/digitalcroqueta/bits_parser). In the process of refactoring, she also ended up making it carve additional data from the Queue Manager files that are not currently identified by the ANSSI-FR tool. It also has slightly better error handling for incomplete/suspended jobs.
+ - Andrea Sancho [refactored the above-listed `bits_parser` as a standalone Python 2.7 script](https://github.com/digitalcroqueta/bits_parser). In the process of refactoring, she also ended up making it carve additional data from the Queue Manager files that are not currently identified by the ANSSI-FR tool. It also has improved error handling for incomplete/suspended jobs.
 
  - Matthew Geiger, ["Finding your naughty BITS"](https://www.dfrws.org/sites/default/files/session-files/pres-finding_your_naughty_bits.pdf), presentation delivered at *DFRWS 2015 USA*, August 2015
 

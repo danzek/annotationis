@@ -16,7 +16,7 @@ There are three types of BITS transfer jobs (defined in [the `BG_JOB_TYPE` enum]
 2. **Upload** (`BG_JOB_TYPE_UPLOAD`, *not supported in BITS 1.2 and earlier*) &mdash; uploads a file to the server
 3. **Upload-reply** (`BG_JOB_TYPE_UPLOAD_REPLY`, *not supported in BITS 1.2 and earlier*) &mdash; uploads a file to the server and receives a reply from the server application
 
-## Peer Caching
+## Peer Caching / BranchCache
 
 According to [Microsoft](https://msdn.microsoft.com/en-us/library/windows/desktop/aa964314(v=vs.85).aspx),
 
@@ -58,7 +58,7 @@ Relevant event logs are stored in:
 
     Microsoft-Windows-Bits-Client/(Microsoft-Windows-Bits-Client/Operational.evtx
 
-On Windows 10, it apppears the BITS transfers are stored in a `.db` file (and I also observed `.log` files) in the same location. BITS v5.0 is included in Windows 10, where the version of `%windir%\System32\QMgr.dll` is "`7.8.xxxx.xxxx`". I am not sure how to parse this database file yet (please contact me to let me know or fork this repo and issue a pull request to this page explaining it more!).
+On newer versions of Windows 10, the BITS transfers are stored in a `.db` file (and I also observed `.log` files) in the same location. This appears to be an ESE database.
 
 ## Tools
 
@@ -78,4 +78,4 @@ On Windows 10, it apppears the BITS transfers are stored in a `.db` file (and I 
  
  - [BITSInject](https://github.com/SafeBreach-Labs/BITSInject) is a one-click tool to inject jobs into the BITS queue, allowing arbitrary program execution as the `NT AUTHORITY/SYSTEM` account.
 
- - [SecureWorks has written about malware leveraging BITS](https://www.secureworks.com/blog/malware-lingers-with-bits) to evade remediation. It also appears they wrote a [010 Editor](https://www.sweetscape.com/download/010editor/) template in the screenshots, but they did not share it publicly in this post.
+ - [SecureWorks has written about malware leveraging BITS](https://www.secureworks.com/blog/malware-lingers-with-bits) to evade remediation.

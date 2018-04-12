@@ -5,6 +5,10 @@ Various notes/memoranda.
 ## Table of Contents
 
 - Operating Systems
+  - Linux
+    - [Mounting Stuff](Operating%20Systems/Linux/MountingStuff.md)
+  - mac\*OS\*
+    - Coming soon in a browser near you....
   - Windows
     - [Background Intelligent Transfer Service (BITS)](Operating%20Systems/Windows/BITS.md)
     - [CLSID Keys](Operating%20Systems/Windows/CLSID.md)
@@ -20,6 +24,7 @@ We may eventually move the NTFS content in the Windows folder to a `File Systems
 | ---- | ----- | ------ | ------- |
 | Dan O'Day | d@4n68r.com | [danzek](https://github.com/danzek) | [@4n68r](https://twitter.com/4n68r) |
 | Adam Witt | accidentalassist@gmail.com | [PoorBillionaire](https://github.com/PoorBillionaire) | [@_TrapLoop](https://twitter.com/_TrapLoop)
+| Steve Gibson | steve@stevegibson.com | [sg](https://github.com/sg) | [stevegibson](https://www.twitter.com/stevegibson) |
 
 Contributions are welcome. Contact me, create an issue, and/or fork this code and create a pull request.
 

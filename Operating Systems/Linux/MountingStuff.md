@@ -74,10 +74,3 @@ To dismount the volumes, do the following (keeping in mind you may need to first
       0 logical volume(s) in volume group "centos" now active
 
     # losetup -D
-
-------------------------------
-
-### Credits
-
-Many thanks to [Steve Gibson](https://about.me/sgibson) for making a cheat sheet for mounting LVM volumes that I've more or less just reproduced here.
-

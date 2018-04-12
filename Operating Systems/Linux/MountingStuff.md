@@ -29,7 +29,7 @@ Expected output should be similar to the following:
     /dev/loop0p1 *       2048  1026047  1024000  500M 83 Linux
     /dev/loop0p2      1026048 41943039 40916992 19.5G 8e Linux LVM
 
-Next calculate the offsets in bytes instead of sectors by multiplying the starting sectors by the sector size. Then create a loopbac device from each offset:    
+Next calculate the offsets in bytes instead of sectors by multiplying the starting sectors by the sector size. Then create a loopback device from each offset:    
 
     # echo "2048*512" | bc
     1048576
@@ -67,7 +67,7 @@ Mount the logical volumes. Sometimes the home folder is in a separate vmdk file 
 
 **Dismounting LVM Volume(s)**
 
-To dismount the volumes, do the following (keeping in mind you may need to first dismount "sub-mounted" volumes such as the home folder or other paths from separate vmdk files, etc.:
+To dismount the volumes, do the following (keeping in mind you may need to first dismount "sub-mounted" volumes such as the home folder or other paths from separate vmdk files, etc.):
 
     # umount /mnt/target
     # vgchange -a n centos

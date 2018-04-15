@@ -42,7 +42,11 @@ To download a file using BITS via PowerShell, as an example, this pulls down the
 
 You can also use `-Source` and `-Destination` parameters and/or use the `-TransferType` parameter to use another transfer job type. [See "Using Windows PowerShell to Create BITS Transfer Jobs"](https://msdn.microsoft.com/en-us/library/windows/desktop/ee663885(v=vs.85).aspx) for many more examples.
 
-The BITS interface allows transfer policy settings to be specified such as avoiding downloads over metered connections via [flags in the `BITS_COST_STATE` enum.](https://msdn.microsoft.com/en-us/library/windows/desktop/mt595901(v=vs.85).aspx) While this makes sense to avoid making a user pay for downloads where bandwidth is expensive, this could also be abused by malware. For instance, policy for a network (that has a firewall, IDS, other monitoring, etc.) could be set to say that it is a metered network, and thus the malware could avoid download activity while connected to that network.
+## COM APIs
+
+BITS can be implemented through a variety of [documented COM interfaces](https://msdn.microsoft.com/en-us/library/windows/desktop/aa362820(v=vs.85).aspx).
+
+The BITS interface for [`IBackgroundCopyJob5`](https://msdn.microsoft.com/en-us/library/windows/desktop/hh446781(v=vs.85).aspx) allows transfer policy settings to be specified such as avoiding downloads over metered connections via [flags in the `BITS_COST_STATE` enum.](https://msdn.microsoft.com/en-us/library/windows/desktop/mt595901(v=vs.85).aspx) While this makes sense to avoid making a user pay for downloads where bandwidth is expensive, this could also be abused by malware. For instance, policy for a network (that has a firewall, IDS, other monitoring, etc.) could be set to say that it is a metered network, and thus the malware could avoid download activity while connected to that network. [Ilya Kobzar and I presented a proof-of-concept to do this at BSides Iowa](https://github.com/danzek/presentations/tree/master/Windows/20180414) (and elsewhere).
 
 ## Queue Manager
 
@@ -60,13 +64,15 @@ Relevant event logs are stored in:
 
 On newer versions of Windows 10, the BITS transfers are stored in a `.db` file (and I also observed `.log` files) in the same location. This appears to be an ESE database.
 
-## Tools
+## Tools / Resources
 
  - The [French National Agency for Information Systems Security (Agence nationale de la sécurité des systèmes d'information / ANSSI-FR)](https://www.ssi.gouv.fr/) released [bits_parser](https://github.com/ANSSI-FR/bits_parser) which extracts BITS jobs from QMGR queues and stores parsed results in CSV format. [Xavier Mertens wrote a blog post](https://isc.sans.edu/forums/diary/Investigating+Microsoft+BITS+Activity/23281/) about using this tool. Note that *Python 3.3+ is required* (this was not documented anywhere when I first went to install it).
  
  - Andrea Sancho [refactored the above-listed `bits_parser` as a standalone Python 2.7 script](https://github.com/digitalcroqueta/bits_parser). In the process of refactoring, she also ended up making it carve additional data from the Queue Manager files that are not currently identified by the ANSSI-FR tool. It also has improved error handling for incomplete/suspended jobs.
 
  - Matthew Geiger, ["Finding your naughty BITS"](https://www.dfrws.org/sites/default/files/session-files/pres-finding_your_naughty_bits.pdf), presentation delivered at *DFRWS 2015 USA*, August 2015
+ 
+ - Dan O'Day and Ilya Kobzar, ["BITS and pieces: Abusing BITS for persistence and privilege escalation"](https://github.com/danzek/presentations/tree/master/Windows/20180414), presentation delivered at *BSides Iowa* (and elsewhere), April 2018
 
  - MSDN, ["How to control whether a BITS job is allowed to download over an expensive connection"](https://msdn.microsoft.com/en-us/library/hh994437%28v=vs.85%29.aspx)
 

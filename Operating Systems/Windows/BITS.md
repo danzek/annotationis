@@ -62,7 +62,7 @@ Relevant event logs are stored in:
 
     Microsoft-Windows-Bits-Client/(Microsoft-Windows-Bits-Client/Operational.evtx
 
-On newer versions of Windows 10, the BITS transfers are stored in a `qmgr.db` file (and I also observed `.log` files) in the same location. This is an ESE database and can be parsed with tools like [BitsParser](https://github.com/fireeye/BitsParser).
+**On newer versions of Windows 10, the BITS transfers are stored in a `qmgr.db` file (and I also observed `.log` files) in the same location. This is an ESE database and can be parsed with tools like [BitsParser](https://github.com/fireeye/BitsParser).**
 
 ## Tools / Resources
 

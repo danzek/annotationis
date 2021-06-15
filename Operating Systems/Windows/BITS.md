@@ -62,7 +62,7 @@ Relevant event logs are stored in:
 
     Microsoft-Windows-Bits-Client/(Microsoft-Windows-Bits-Client/Operational.evtx
 
-On newer versions of Windows 10, the BITS transfers are stored in a `.db` file (and I also observed `.log` files) in the same location. This appears to be an ESE database.
+On newer versions of Windows 10, the BITS transfers are stored in a `qmgr.db` file (and I also observed `.log` files) in the same location. This is an ESE database and can be parsed with tools like [BitsParser](https://github.com/fireeye/BitsParser).
 
 ## Tools / Resources
 
@@ -85,3 +85,5 @@ On newer versions of Windows 10, the BITS transfers are stored in a `.db` file (
  - [BITSInject](https://github.com/SafeBreach-Labs/BITSInject) is a one-click tool to inject jobs into the BITS queue, allowing arbitrary program execution as the `NT AUTHORITY/SYSTEM` account.
 
  - [SecureWorks has written about malware leveraging BITS](https://www.secureworks.com/blog/malware-lingers-with-bits) to evade remediation.
+ 
+ - [FireEye BitsParser for the ESE database on Win10+.](https://github.com/fireeye/BitsParser)

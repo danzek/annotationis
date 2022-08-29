@@ -65,7 +65,7 @@ Mount the logical volumes. Sometimes the home folder is in a separate vmdk file 
     bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
     boot  etc  lib   media  opt  root  sbin  sys  usr
 
-**Dismounting LVM Volume(s)**
+## Dismounting LVM Volume(s)
 
 To dismount the volumes, do the following (keeping in mind you may need to first dismount "sub-mounted" volumes such as the home folder or other paths from separate vmdk files, etc.):
 
@@ -74,3 +74,12 @@ To dismount the volumes, do the following (keeping in mind you may need to first
       0 logical volume(s) in volume group "centos" now active
 
     # losetup -D
+
+## Avoid Using Offsets in Mount Command
+
+    modprobe nbd
+    qemu-nbd -r -c /dev/nbd0 /mnt/rawdisk
+
+Each partition should then be listed as `/dev/nbd0`, `/dev/nbd0pq`, etc. Then you can mount the respective partition(s):
+
+    mount -o loop,ro /dev/nbd0p1 /mnt/target

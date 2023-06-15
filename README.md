@@ -7,16 +7,14 @@ Various notes/memoranda.
 - Operating Systems
   - Linux
     - [Mounting Stuff](Operating%20Systems/Linux/MountingStuff.md)
-  - mac\*OS\*
-    - Coming soon in a browser near you....
+  - macOS
+    - [Apple Unified Logging (AUL)](Operating%20Systems/macOS/UnifiedLogging.md)
   - Windows
     - [Background Intelligent Transfer Service (BITS)](Operating%20Systems/Windows/BITS.md)
     - [CLSID Keys](Operating%20Systems/Windows/CLSID.md)
     - [NTFS File Caching ("Lazy Write")](Operating%20Systems/Windows/FileCaching.md)
     - [NTFS File Times](Operating%20Systems/Windows/FileTimes.md)
     - [User Account Control (UAC) Virtualization](Operating%20Systems/Windows/UACVirtualization.md)
-
-We may eventually move the NTFS content in the Windows folder to a `File Systems/NTFS` folder.
 
 ## Contributors
 

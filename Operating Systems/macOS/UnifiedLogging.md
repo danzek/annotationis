@@ -67,15 +67,20 @@ Initial Access | `processImagePath BEGINSWITH "/System/" AND process == "Securit
 Initial Access | `processImagePath BEGINSWITH "/System/Library/CoreServices" AND process == "loginwindow" AND subsystem == "com.apple.loginwindow.logging" AND eventMessage CONTAINS "[Login1 doLogin] \| shortUsername"` | *Successful* password-based login | 12.6 | No
 Initial Access | `process == "loginwindow" AND eventMessage CONTAINS[c] "APEventTouchIDNoMatch"` | *Failed* TouchID login attempt | 12.6 | No
 Initial Access | `process == "loginwindow" AND eventMessage CONTAINS[c] "APEventTouchIDMatch"` | *Successful* TouchID login | 12.6 | No
+Initial Access | `processImagePath ENDSWITH[c] "loginwindow" and eventMessage CONTAINS[c] "LWScreenLockAuthentication" and eventMessage CONTAINS[c] "screensaver_aks"` | *Successful* Apple Watch login | 12.6 | No
 Execution | `process == "sudo" && eventMessage CONTAINS[c] "COMMAND"` | Commands executed with `sudo` privileges | 12.6 | No
 Execution | `subsystem == "com.apple.syspolicy.exec" AND process == "syspolicyd" AND category == "default"` | Gatekeeper scans when file(s) opened | 12.6 | Yes
 Persistence | `subsystem == "com.apple.ManagedClient" AND process == "mdmclient" AND category == "MDMDaemon" and eventMessage CONTAINS "Installed configuration profile:" AND eventMessage CONTAINS "Source: Manual"` | *Manual* installation of configuration profile | 12.6 | No
 Persistence | `subsystem == "com.apple.opendirectoryd" AND process == "opendirectoryd" AND category == "auth" AND eventMessage CONTAINS "Password changed for"` | *Successful* local user password change | 12.6 | No
 Persistence | `subsystem == "com.apple.opendirectoryd" AND process == "opendirectoryd" AND category == "auth" AND eventMessage CONTAINS "Failed to change password"` | *Failed* local user password change | 12.6 | No
+Persistence | `subsystem == "com.apple.networkextension" and process == "nehelper" and eventMessage CONTAINS "DNS settings are enabled" OR subsystem == "com.apple.networkextension" and process == "nesessionmanager" and eventMessage contains "status changed to disconnected, last stop reason Configuration was disabled"'` | Modify DNS settings in network preferences | 12.6 | No
+Privilege Escalation | `processImagePath == "/usr/libexec/opendirectoryd" AND process == "opendirectoryd" AND subsystem == "com.apple.opendirectoryd" AND eventMessage CONTAINS "Password changed for root"` | Enable account or change password for *root* user | 12.6 | No
 Defense Evasion | `subsystem == "com.apple.launchservices" AND process == "CoreServicesUIAgent" AND category == "uiagent" AND (eventMessage BEGINSWITH "Saving rejection record:" OR eventMessage CONTAINS "Gatekeeper rejection record")` | Gatekeeper rejection / bypass | 12.6 | Yes
 Defense Evasion | `subsystem == "com.apple.ManagedClient" AND process == "mdmclient" AND category == "MDMDaemon" and eventMessage CONTAINS "Removed configuration profile:" AND eventMessage CONTAINS "Source: Manual"` | *Manual* removal of configuration profile | 12.6 | No
+Defense Evasion | `subsystem == "com.apple.ManagedClient" AND eventMessage CONTAINS "Removed configuration profile: MDM Profile" AND eventMessage CONTAINS "Source: Manual"` | *Manual* removal of MDM profile | 12.6 | No
 Lateral Movement | `processImagePath BEGINSWITH "/System/Library/CoreServices" AND process == "loginwindow" AND eventMessage CONTAINS[c] "INCORRECT"` | Failed lock screen unlock attempt | 12.6 | No
 Exfiltration | `subsystem == "com.apple.sharing" AND process == "AirDrop" AND processImagePath BEGINSWITH "/System/Library" AND eventMessage BEGINSWITH "Successfully issued sandbox extension for"` | Outbound Airdrop file transfer (shows filename) | 12.6 | No
+Exfiltration | `process == "NetAuthSysAgent" AND subsystem == "com.apple.NetAuthAgent" AND category == "IPC" AND eventMessage BEGINSWITH "URL = "` | Server connection attempts using Finder's "Connect to Server" dialog (e.g., SMB, FTP, etc.) | 12.6 | No
 
 *More coming soon(ish)....*
 

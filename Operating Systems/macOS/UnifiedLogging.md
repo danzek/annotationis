@@ -37,8 +37,6 @@ The latter can also be used with a predicate to filter the logs in realtime.
 
 Predicates include:
 
-**Predicate
-
 **Predicate** | **Description**
 ------------- | ---------------
 `eventType` | Type of event (e.g.,  `aactivityCreateEvent`, `activityTransitionEvent`, `logEvent`, `signpostEvent`, `stateEvent,` `timesyncEvent`, `traceEvent`, `userActionEvent`)

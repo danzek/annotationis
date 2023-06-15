@@ -61,8 +61,12 @@ Examples of how to determine the subsystem associated with various apps:
 
 Various filters to use with the `log` utility's `--predicate` parameter on macOS with potentially associated [MITRE ATT&CK](https://attack.mitre.org/) tactic (to have some semblance of organization&mdash;several of these could be associated with multiple tactics so this is fairly arbitrary). I also include the last version I (or someone else) tested it on and whether there is private data in the log entries:
 
-**Tactic** | **Query** | **Description** | **Last Tested On** | **Private Data**
----------- | --------- | --------------- | ------------------ | ----------------
+**Tactic** | **Filter** | **Description** | **Last Tested On** | **Private Data**
+---------- | ---------- | --------------- | ------------------ | ----------------
+Initial Access | `processImagePath BEGINSWITH "/System/" AND process == "SecurityAgent" AND subsystem == "com.apple.loginwindow" AND eventMessage CONTAINS "Authentication failure"` | *Failed* password-based login attempt | 12.6 | No
+Initial Access | `processImagePath BEGINSWITH "/System/Library/CoreServices" AND process == "loginwindow" AND subsystem == "com.apple.loginwindow.logging" AND eventMessage CONTAINS "[Login1 doLogin] | shortUsername"` | *Successful* password-based login | 12.6 | No
+Initial Access | `process == "loginwindow" AND eventMessage CONTAINS[c] "APEventTouchIDNoMatch"` | *Failed* TouchID login attempt | 12.6 | No
+Initial Access | `process == "loginwindow" AND eventMessage CONTAINS[c] "APEventTouchIDMatch"` | *Successful* TouchID login | 12.6 | No
 Execution | `process == "sudo" && eventMessage CONTAINS[c] "COMMAND"` | Commands executed with `sudo` privileges | 12.6 | No
 Execution | `subsystem == "com.apple.syspolicy.exec" AND process == "syspolicyd" AND category == "default"` | Gatekeeper scans when file(s) opened | 12.6 | Yes
 Persistence | `subsystem == "com.apple.ManagedClient" AND process == "mdmclient" AND category == "MDMDaemon" and eventMessage CONTAINS "Installed configuration profile:" AND eventMessage CONTAINS "Source: Manual"` | *Manual* installation of configuration profile | 12.6 | No

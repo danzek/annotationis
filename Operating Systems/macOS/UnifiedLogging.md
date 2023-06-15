@@ -63,7 +63,7 @@ Various filters to use with the `log` utility's `--predicate` parameter on macOS
 
 **Tactic** | **Query** | **Description** | **Last Tested On** | **Private Data**
 ---------- | --------- | --------------- | ------------------ | ----------------
-Execution | `process == "sudo" && eventMessage contains "COMMAND"` | Commands executed with `sudo` privileges | 12.6 | No
+Execution | `process == "sudo" && eventMessage CONTAINS[c] "COMMAND"` | Commands executed with `sudo` privileges | 12.6 | No
 Execution | `subsystem == "com.apple.syspolicy.exec" AND process == "syspolicyd" AND category == "default"` | Gatekeeper scans when file(s) opened | 12.6 | Yes
 Persistence | `subsystem == "com.apple.ManagedClient" AND process == "mdmclient" AND category == "MDMDaemon" and eventMessage CONTAINS "Installed configuration profile:" AND eventMessage CONTAINS "Source: Manual"` | *Manual* installation of configuration profile | 12.6 | No
 Persistence | `subsystem == "com.apple.opendirectoryd" AND process == "opendirectoryd" AND category == "auth" AND eventMessage CONTAINS "Password changed for"` | *Successful* local user password change | 12.6 | No

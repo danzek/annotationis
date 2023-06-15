@@ -22,7 +22,7 @@ You can create a `logarchive` file of the logs on a live system with:
 
     log collect
 
-The `log show` command can be used with the `*.logarchive` file.
+You can use the `--output` parameter to specify output location. The `log show` command can be used with the `*.logarchive` file.
 
 ## Live logs
 
@@ -35,21 +35,50 @@ The latter can also be used with a predicate to filter the logs in realtime.
 
 ## Predicate Reference
 
-Various predicates to use with the `log` utility on macOS.
+Predicates include:
 
-**Predicate** | **Description** | **Version Tested**
+**Predicate
+
+**Predicate** | **Description**
+------------- | ---------------
+`eventType` | Type of event (e.g.,  `aactivityCreateEvent`, `activityTransitionEvent`, `logEvent`, `signpostEvent`, `stateEvent,` `timesyncEvent`, `traceEvent`, `userActionEvent`)
+`eventMessage` | Message text
+`messageType` | Message type / verbosity level (e.g., `default`, `info`, `debug`, `error`, `fault`)
+`process` | Originating process
+`processImagePath` | Full path of originating process
+`sender` | Originating code (e.g., lib / framework, kext)
+`senderImagePath` | Full path of originating code
+`subsystem` | `os_log(3)` [API subsystems](https://gist.github.com/krypted/495e48a995b2c08d25dc4f67358d1983) which comes from the `CFBundleIdentifier` in applications' respective `Info.plist` files
+`category` | `os_log(3)` API subsystem categories
+
+Examples of how to determine the subsystem associated with various apps:
+
+    $ defaults read /Applications/Cyberduck.app/Contents/Info.plist CFBundleIdentifier
+    ch.sudo.cyberduck
+    
+    $ defaults read /Applications/010\ Editor.app/Contents/Info.plist CFBundleIdentifier
+    com.SweetScape.010Editor
+
+### Queries
+
+Various queries to use with the `log` utility on macOS:
+
+**Query** | **Description** | **Version Tested**
 ------------- | --------------- | ------------------
-`process =="sudo" && eventMessage contains "COMMAND"` | Commands executed with `sudo` privilege | 12.6
+`process == "sudo" && eventMessage contains "COMMAND"` | Commands executed with `sudo` privilege | 12.6
 
 *More coming soon(ish)....*
 
 ## References
 
-- [Apple: Logging documentation](https://developer.apple.com/documentation/os/logging)
-- [Apple: Predicare Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Predicates/AdditionalChapters/Introduction.html)
+- Apple 
+  - [Logging documentation](https://developer.apple.com/documentation/os/logging)
+  - [Predicate Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Predicates/AdditionalChapters/Introduction.html)
+  - [SystemLogging](https://developer.apple.com/documentation/devicemanagement/systemlogging) &mdash; covers `Enable-Private-Data` key
 - [Joachim Metz: Apple Unified Logging and Activity Tracing formats](https://github.com/libyal/dtformats/blob/main/documentation/Apple%20Unified%20Logging%20and%20Activity%20Tracing%20formats.asciidoc)
 - [CrowdStrike: Finding Waldo: Leveraging the Apple Unified Log for Incident Response](https://www.crowdstrike.com/blog/how-to-leverage-apple-unified-log-for-incident-response/)
 - [Mandiant: macOS Unified Logs tool](https://github.com/mandiant/macos-UnifiedLogs)
+- [macOS logging subsystems](https://gist.github.com/krypted/495e48a995b2c08d25dc4f67358d1983)
 - Howard Oakley / Eclectic Light Company
   - macOS Unified log &mdash; [Part 1: Why, what, and how](https://eclecticlight.co/2018/03/19/macos-unified-log-1-why-what-and-how/) | [Part 2: Content and extraction](https://eclecticlight.co/2018/03/20/macos-unified-log-2-content-and-extraction/) | [Part 3: Finding your way](https://eclecticlight.co/2018/03/21/macos-unified-log-3-finding-your-way/)
   - [Log literacy: all about the log](https://eclecticlight.co/2023/02/08/log-literacy-all-about-the-log/)

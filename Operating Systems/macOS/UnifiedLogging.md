@@ -64,7 +64,7 @@ Various filters to use with the `log` utility's `--predicate` parameter on macOS
 **Tactic** | **Filter** | **Description** | **Last Tested On** | **Private Data**
 ---------- | ---------- | --------------- | ------------------ | ----------------
 Initial Access | `processImagePath BEGINSWITH "/System/" AND process == "SecurityAgent" AND subsystem == "com.apple.loginwindow" AND eventMessage CONTAINS "Authentication failure"` | *Failed* password-based login attempt | 12.6 | No
-Initial Access | `processImagePath BEGINSWITH "/System/Library/CoreServices" AND process == "loginwindow" AND subsystem == "com.apple.loginwindow.logging" AND eventMessage CONTAINS "[Login1 doLogin] | shortUsername"` | *Successful* password-based login | 12.6 | No
+Initial Access | `processImagePath BEGINSWITH "/System/Library/CoreServices" AND process == "loginwindow" AND subsystem == "com.apple.loginwindow.logging" AND eventMessage CONTAINS "[Login1 doLogin] \| shortUsername"` | *Successful* password-based login | 12.6 | No
 Initial Access | `process == "loginwindow" AND eventMessage CONTAINS[c] "APEventTouchIDNoMatch"` | *Failed* TouchID login attempt | 12.6 | No
 Initial Access | `process == "loginwindow" AND eventMessage CONTAINS[c] "APEventTouchIDMatch"` | *Successful* TouchID login | 12.6 | No
 Execution | `process == "sudo" && eventMessage CONTAINS[c] "COMMAND"` | Commands executed with `sudo` privileges | 12.6 | No

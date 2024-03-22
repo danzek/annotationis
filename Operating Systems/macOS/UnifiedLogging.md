@@ -57,6 +57,8 @@ Examples of how to determine the subsystem associated with various apps:
     $ defaults read /Applications/010\ Editor.app/Contents/Info.plist CFBundleIdentifier
     com.SweetScape.010Editor
 
+You can find the subsystems in `/System/Library/Preferences/Logging/Subsystems/` and just remove "`.plist`" from the name to query that subsystem.
+
 ## Filters
 
 Various filters to use with the `log` utility's `--predicate` parameter on macOS with potentially associated [MITRE ATT&CK](https://attack.mitre.org/) tactic (to have some semblance of organization&mdash;several of these could be associated with multiple tactics so this is fairly arbitrary). I also include the last version I (or someone else) tested it on and whether there is private data in the log entries:
